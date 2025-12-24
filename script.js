@@ -1,5 +1,5 @@
 // Set the date of the opening match
-const worldCupDate = new Date("June 8, 2026 18:00:00").getTime();
+const worldCupDate = new Date("June 11, 2026 18:00:00").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
