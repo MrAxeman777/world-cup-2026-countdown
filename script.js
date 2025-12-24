@@ -1,6 +1,5 @@
 // Set the opening match date and time (June 11, 2026, 18:00 Central Time UTC-6)
-const worldCupDate = new Date(Date.UTC(2026, 5, 11, 18 + 6, 0, 0)).getTime(); 
-// monthIndex is 0-based (June = 5), adding 6 hours to convert UTC-6 to UTC
+const worldCupDate = new Date("2026-06-11T18:00:00-06:00").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
