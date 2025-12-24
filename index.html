@@ -1,16 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>FIFA World Cup 2026 Countdown</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA World Cup 2026 Countdown</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: url('Screenshot 2025-12-24 090809.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        #countdown {
+            font-size: 80px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+    <div id="countdown">Loading...</div>
 
-  <h1>🏆 FIFA World Cup 2026</h1>
-  <h2>Opening Match Countdown</h2>
-  <p id="countdown">Loading...</p>
+    <script>
+        // Set the date of the opening match
+        const worldCupDate = new Date("June 8, 2026 18:00:00").getTime();
 
-  <script src="script.js"></script>
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = worldCupDate - now;
+
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "The World Cup has started!";
+                clearInterval(countdownInterval);
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML =
+                days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+        }
+
+        // Update every second
+        const countdownInterval = setInterval(updateCountdown, 1000);
+        updateCountdown(); // initial call
+    </script>
 </body>
 </html>
+
 
