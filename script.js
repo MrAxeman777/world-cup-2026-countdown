@@ -1,21 +1,25 @@
-// FIFA World Cup 2026 Opening Match
-// June 11, 2026
+// Set the date of the opening match
+const worldCupDate = new Date("June 8, 2026 18:00:00").getTime();
 
-const worldCupDate = new Date("June 11, 2026 00:00:00").getTime();
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = worldCupDate - now;
 
-setInterval(() => {
-  const now = new Date().getTime();
-  const distance = worldCupDate - now;
+    if (distance < 0) {
+        document.getElementById("countdown").innerHTML = "The World Cup has started!";
+        clearInterval(countdownInterval);
+        return;
+    }
 
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  document.getElementById("countdown").innerHTML =
-    days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+    document.getElementById("countdown").innerHTML =
+        days + "d " + hours + "h " + minutes + "m " + seconds + "s";
+}
 
-  if (distance < 0) {
-    document.getElementById("countdown").innerHTML = "🏟️ IT'S KICKOFF TIME!";
-  }
-}, 1000);
+// Update every second
+const countdownInterval = setInterval(updateCountdown, 1000);
+updateCountdown(); // initial call
