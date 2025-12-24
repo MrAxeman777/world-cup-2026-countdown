@@ -8,27 +8,35 @@
         body {
             margin: 0;
             padding: 0;
-            height: 100vh; /* full viewport height */
+            height: 100vh;
             display: flex;
-            justify-content: center; /* center horizontally */
-            align-items: center;     /* center vertically */
+            flex-direction: column; /* stack numbers and text vertically */
+            justify-content: flex-start; /* align near the top */
+            align-items: center; /* center horizontally */
             font-family: Arial, sans-serif;
             color: white;
             text-shadow: 2px 2px 5px black;
             background: url('Screenshot%202025-12-24%20090809.png') no-repeat center center fixed;
             background-size: cover;
+            padding-top: 80px; /* space from the top */
         }
 
         #countdown {
             font-size: 80px;
+            text-align: center;
+            margin-bottom: 20px; /* space between countdown and subtitle */
+        }
+
+        #subtitle {
+            font-size: 30px;
             text-align: center;
         }
     </style>
 </head>
 <body>
     <div id="countdown">Loading...</div>
+    <div id="subtitle">till the 2026 FIFA World Cup!</div>
 
-    <!-- Link to external JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
